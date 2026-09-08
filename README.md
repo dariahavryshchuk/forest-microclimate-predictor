@@ -26,6 +26,7 @@ I evaluated the models using:
 - MAE (Mean Absolute Error)
 - RMSE (Root Mean Squared Error)
 - R^2
+
 After comparing the models and experimenting with different features, I selected a Random Forest using canopy cover, sensor height, elevation, and month as my final model.
 
 ## Results
@@ -33,6 +34,7 @@ Using a normal random 80/20 train-test split, the final Random Forest achieved a
 - MAE: 1.40 Celsius
 - RMSE: 1.99 Celsius
 - R^2: 0.72
+
 I also experimented with adding the research location as another feature. This slightly lowered the MAE to about 1.35 Celsius. However, I decided not to use location in the final model because I wanted the predictions to depend on environmental features instead of the identity of one of the locations already represented in the dataset.
 
 ## Testing on Unseen Sensors
@@ -41,6 +43,7 @@ Instead of randomly separating individual rows, I used grouped splitting so that
 Across five grouped tests, the model achieved approximately:
 - Average MAE: 2.55 Celcius
 - Average R^2: 0.11
+
 This was much worse than the normal random split. It showed that although the model learned useful patterns in the dataset, those patterns did not generalize nearly as well to completely unseen sensors.
 
 ## Limitations
@@ -52,6 +55,7 @@ I built an interactive web application using StreamLit. A user can select:
 - Sensor height
 - Elevation
 - Month
+
 The application sends these inputs to the trained Random Forest model and displays its predicted temperature buffering. The model was trained separately and saved using Joblib so tha the Streamlit application can load the trained model without retraining it every time the application runs.
 
 ## Tools and Technologies
